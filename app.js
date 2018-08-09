@@ -34,7 +34,7 @@ const app = http.createServer((req, res) => {
                 diff = commentData;
             }
             else {
-                diff = commentData.substr(str_history.length - 1);
+                diff = commentData.substr(str_history.length);
             }
             res.write(diff);
             console.log(diff);
