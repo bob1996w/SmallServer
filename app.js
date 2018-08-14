@@ -9,6 +9,7 @@ const QUERY_UPDATE = 'Update';
 const QUERY_RECEIVE_NOD_DATA = 'ReceiveNodData';
 const QUERY_RECEIVE_NOD_DATA_COMPLETED = 'NodDataCompleted';
 const QUERY_TASK_END = 'TaskEnd';
+const QUERY_LOG = 'log';
 const PATH_DATA = path.join('data');
 const PATH_COMMENT = path.join('data', 'comment.txt');
 const PATH_USER_NOD = path.join('data', 'user' + USER_NUM + '.csv');
@@ -50,6 +51,9 @@ const app = http.createServer((req, res) => {
     else if (queryData.q === QUERY_TASK_END) { 
         console.log('Recieved Exit');
         res.write('exit');
+    }
+    else if (queryData.q === QUERY_LOG) {
+        console.log(queryData.data);
     }
     else {
         console.log('Unknown query: ' + queryData.q);
